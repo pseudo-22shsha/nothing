@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday Checker</title>
+  <style>
+    body {
+      top: 100px;
+      font-family: Arial, sans-serif;
+      padding: 0;
+      background-color: lightgray;
+      justify-content: center;
+      position: fixed;
+      align-items: center;
+    }
+    input {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      width: 300px;
+      border: 0 0 4px 0;
+    }
+      
+      button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 20px;
+      background-color: #2ecc71;
+      border: none;
+      border-radius: 3px;
+      color: white;
+      width: 100px;
+      height: 40px;
+    }
+    
+    img {
+      margin-top: 80px;
+      margin-left: -10px;
+      height: 500px;
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Enter your name and birthday</h2>
+  <input type="text" id="userInput" placeholder="e.g. john, january 1 or john michael, january 1" />
+  <br>
+  <button onclick="checkInput()">Submit</button><br>
+  
+  <img src="i.png">
+
+  <script>
+    function checkInput() {
+      const input = document.getElementById("userInput").value.trim().toLowerCase();
+
+      const accepted = [
+        "elisha, may 22",
+        "elisha may, may 22"
+        "Elisha May, May 22"
+        "Elisha, May 22"
+        // Add more here if needed
+      ];
+
+      if (accepted.includes(input)) {
+        window.location.href = "special.html"; // If matched
+      } else {
+        window.location.href = "default.html"; // If not matched
+      }
+    }
+  </script>
+</body>
+</html>

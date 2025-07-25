@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Challenge</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      color: #4b0082;
+    }
+    .equation {
+      background-color: #fff;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 4px solid #4b0082;
+      font-size: 18px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #4b0082;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3a006b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Solve These to Proceed</h1>
+  <p>Show your brainpower. No cheating!</p>
+
+  <div class="equation">
+    1. x² + 5x + 6 = 0
+  </div>
+
+  <div class="equation">
+    2. 2x² - 2x - 6 = 0
+  </div>
+
+  <div class="equation">
+    3. x² - 3x - 10 = 0
+  </div>
+
+  <div class="equation">
+    4. 3x² + 2x - 1 = 0
+  </div>
+
+  <div class="equation">
+    5. x² - 8x + 16 = 0
+  </div>
+<div style="margin-top: 40px;">
+  <p id="questionText"><strong>Answer for Question #1:</strong></p>
+  
+  <textarea id="answer" placeholder="Type your answer here..." rows="4" style="
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-top: 10px;
+  "></textarea>
+
+  <button onclick="handleSend()" style="
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4b0082;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  ">Send</button>
+</div>
+
+<script>
+  const totalQuestions = 5; // change to however many questions you want
+  let currentQuestion = 1;
+  const answers = [];
+
+  function handleSend() {
+    const textarea = document.getElementById("answer");
+    const answer = textarea.value.trim();
+
+    if (answer === "") {
+      alert("Please answer the question before continuing.");
+      return;
+    }
+
+    answers.push(`Q${currentQuestion}: ${answer}`);
+    currentQuestion++;
+
+    if (currentQuestion > totalQuestions) {
+      document.getElementById("questionText").innerHTML = "<strong>All done! Thank you for your answers. <br>Who Knows If The Answers Are Correct. Go ask ChatGPT or sum.</strong>";
+      textarea.style.display = "none";
+      document.querySelector("button").style.display = "none";
+
+      // Optional: Show all answers
+      const summary = document.createElement("pre");
+      summary.textContent = answers.join("\n");
+      document.body.appendChild(summary);
+
+      return;
+    }
+
+    // Update question label and clear textarea
+    document.getElementById("questionText").innerHTML = `<strong>Answer for Question #${currentQuestion}:</strong>`;
+    textarea.value = "";
+  }
+</script>
+
+
+  <button id="no" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">Do Not Click This!</button>
+  <style>
+    #no {
+      background-color: red;
+    }
+  </style>
+</body>
+</html>
